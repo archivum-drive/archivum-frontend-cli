@@ -105,9 +105,10 @@ func (m Model) handleKeyPress(msg tea.KeyMsg) (Model, tea.Cmd) {
 			m.currentView = views[m.currentView.id+1]
 		}
 		return m, nil
+	default:
+		m.allObjectsView, _ = m.allObjectsView.Update(msg)
+		return m, nil
 	}
-
-	return m, nil
 }
 
 func (m Model) renderMenue() string {
